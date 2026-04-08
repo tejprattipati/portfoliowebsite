@@ -271,9 +271,9 @@ strong { color: var(--text); font-weight: 600; }
   margin-bottom: 22px;
 }
 .hero-headshot {
-  width: 180px;
-  height: 180px;
-  min-width: 180px;
+  width: 270px;
+  height: 270px;
+  min-width: 270px;
   border-radius: 50%;
   object-fit: cover;
   object-position: center top;
@@ -899,7 +899,7 @@ strong { color: var(--text); font-weight: 600; }
   /* hero */
   .hero { padding-top: calc(var(--nav-h) + 56px); }
   .hero-scroll { display: none; }
-  .hero-headshot { width: 110px; height: 110px; min-width: 110px; }
+  .hero-headshot { width: 160px; height: 160px; min-width: 160px; }
 
   /* experience */
   .exp-list::before { display: none; }
