@@ -8,6 +8,8 @@
   <meta name="description" content="Finance portfolio of Tej Prattipati — PE/VC, equity research, LBO modeling, and quantitative trading at University of Michigan." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://view.officeapps.live.com" />
+  <link rel="dns-prefetch" href="https://view.officeapps.live.com" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
 </head>
@@ -453,8 +455,7 @@
           </svg>
         </button>
       </div>
-      <div class="modal-body">
-        <iframe id="modal-iframe" title="Document Viewer" allowfullscreen></iframe>
+      <div class="modal-body" id="modal-body">
       </div>
       <div class="modal-foot" id="modal-foot"></div>
     </div>
@@ -532,6 +533,38 @@
       }
     };
 
+    const BASE_URL = window.location.origin + window.location.pathname.replace(/\/[^/]*$/, '/');
+
+    function getViewerUrl(doc) {
+      const fileUrl = BASE_URL + doc.file;
+      return doc.isPDF
+        ? fileUrl
+        : 'https://view.officeapps.live.com/op/embed.aspx?src=' + encodeURIComponent(fileUrl);
+    }
+
+    // Create one iframe per doc inside modal-body; preload Office files after page load
+    const viewerIframes = {};
+    window.addEventListener('load', () => {
+      const modalBody = document.getElementById('modal-body');
+      Object.entries(DOCS).forEach(([key, doc]) => {
+        const iframe = document.createElement('iframe');
+        iframe.title = doc.title;
+        iframe.allowFullscreen = true;
+        iframe.style.cssText = 'display:none;width:100%;height:100%;border:none;';
+        modalBody.appendChild(iframe);
+        viewerIframes[key] = iframe;
+      });
+
+      // Preload Office Online iframes after a short delay so the page renders first
+      setTimeout(() => {
+        Object.entries(DOCS).forEach(([key, doc]) => {
+          if (!doc.isPDF) {
+            viewerIframes[key].setAttribute('src', getViewerUrl(doc));
+          }
+        });
+      }, 1500);
+    });
+
     // ── Additional section toggle ────────────────────
     function toggleAdditional() {
       const content = document.getElementById('additional-content');
@@ -543,14 +576,18 @@
 
     function openViewer(type) {
       const doc = DOCS[type];
-      const base = window.location.origin + window.location.pathname.replace(/\/[^/]*$/, '/');
-      const fileUrl = base + doc.file;
-      const viewerUrl = doc.isPDF
-        ? fileUrl
-        : 'https://view.officeapps.live.com/op/embed.aspx?src=' + encodeURIComponent(fileUrl);
+      const iframe = viewerIframes[type];
+
+      // If not yet preloaded (e.g. page opened very quickly), load now
+      if (!iframe.getAttribute('src')) {
+        iframe.setAttribute('src', getViewerUrl(doc));
+      }
+
+      // Show only this iframe
+      Object.values(viewerIframes).forEach(f => { f.style.display = 'none'; });
+      iframe.style.display = 'block';
 
       document.getElementById('modal-title').textContent = doc.title;
-      document.getElementById('modal-iframe').src = viewerUrl;
       document.getElementById('modal-foot').innerHTML =
         `<a class="btn btn-sm btn-outline" href="${doc.download}" download>Download File</a>
          <p class="modal-note">${doc.isPDF ? 'PDF viewer.' : 'Powered by Microsoft Office Online.'} If the preview doesn't load, download directly.</p>`;
@@ -560,7 +597,8 @@
 
     function closeViewer() {
       document.getElementById('modal-overlay').classList.remove('active');
-      document.getElementById('modal-iframe').src = '';
+      // Hide all iframes but keep src intact so they stay loaded for next open
+      Object.values(viewerIframes).forEach(f => { f.style.display = 'none'; });
       document.body.style.overflow = '';
     }
 
