@@ -264,6 +264,25 @@ strong { color: var(--text); font-weight: 600; }
   max-width: 760px;
   animation: fadeUp 0.9s ease both;
 }
+.hero-name-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+  margin-bottom: 0;
+}
+.hero-headshot-wrap {
+  flex-shrink: 0;
+}
+.hero-headshot {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center top;
+  border: 3px solid var(--gold);
+  box-shadow: 0 0 0 6px rgba(201, 168, 76, 0.12), 0 12px 40px rgba(0,0,0,0.4);
+}
 .hero-name {
   font-family: 'Playfair Display', serif;
   font-size: clamp(3.2rem, 8vw, 6rem);
@@ -882,6 +901,7 @@ strong { color: var(--text); font-weight: 600; }
   /* hero */
   .hero { padding-top: calc(var(--nav-h) + 56px); }
   .hero-scroll { display: none; }
+  .hero-headshot { width: 100px; height: 100px; }
 
   /* experience */
   .exp-list::before { display: none; }
