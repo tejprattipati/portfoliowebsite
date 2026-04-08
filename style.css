@@ -574,6 +574,27 @@ strong { color: var(--text); font-weight: 600; }
   gap: 1px;
   background: var(--border);
 }
+.work-docs-single {
+  grid-template-columns: 1fr 1fr;
+}
+.work-card + .work-card {
+  margin-top: 24px;
+}
+.doc-card-placeholder {
+  opacity: 0.6;
+  cursor: default;
+  pointer-events: none;
+}
+.coming-soon-tag {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--text-dim);
+  border: 1px dashed var(--border);
+  padding: 6px 14px;
+  border-radius: 100px;
+  white-space: nowrap;
+}
 .doc-card {
   background: var(--bg-card-2);
   padding: 24px 28px;

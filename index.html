@@ -242,7 +242,7 @@
               <div class="doc-type">PowerPoint &nbsp;·&nbsp; MIG LBO Competition</div>
             </div>
             <div class="doc-btns">
-              <button class="btn btn-sm btn-primary" onclick="openViewer('deck')">View</button>
+              <button class="btn btn-sm btn-primary" onclick="openViewer('lkncy-deck')">View</button>
               <a class="btn btn-sm btn-outline" href="./%24LKNCY_Deck%20(4).pptx" download>Download</a>
             </div>
           </div>
@@ -261,13 +261,94 @@
               <div class="doc-type">Excel &nbsp;·&nbsp; Full Model with Returns Waterfall</div>
             </div>
             <div class="doc-btns">
-              <button class="btn btn-sm btn-primary" onclick="openViewer('model')">View</button>
+              <button class="btn btn-sm btn-primary" onclick="openViewer('lkncy-model')">View</button>
               <a class="btn btn-sm btn-outline" href="./LKNCY%20-%20MIG%20LBO%20Comp%20Final%20Model.xlsx" download>Download</a>
             </div>
           </div>
 
         </div>
       </div>
+
+      <!-- Vertiv Holdings -->
+      <div class="work-card reveal">
+        <div class="work-card-top">
+          <span class="work-badge">Michigan Investment Group &nbsp;·&nbsp; Energy Desk</span>
+          <h3 class="work-title">Equity Research Pitch — Vertiv Holdings [NYSE: VRT]</h3>
+          <p class="work-desc">
+            Pitched Vertiv Holdings to 60+ members and a $25,000 portfolio at the Michigan Investment Group's Energy Desk. The thesis centered on Vertiv's structural shift from a cyclical equipment supplier to a recurring infrastructure-and-services platform, with BYOP&amp;C expansion as a key driver of recurring revenue — supporting <strong>111% implied upside</strong> at time of pitch.
+          </p>
+        </div>
+        <div class="work-docs work-docs-single">
+
+          <div class="doc-card">
+            <div class="doc-icon-wrap">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <rect x="2" y="3" width="20" height="14" rx="2"></rect>
+                <path d="M8 21h8M12 17v4"></path>
+              </svg>
+            </div>
+            <div class="doc-info">
+              <div class="doc-name">Pitch Deck</div>
+              <div class="doc-type">PDF &nbsp;·&nbsp; MIG Energy Desk Presentation</div>
+            </div>
+            <div class="doc-btns">
+              <button class="btn btn-sm btn-primary" onclick="openViewer('vrt')">View</button>
+              <a class="btn btn-sm btn-outline" href="./%24VRT%20Energy%20W26%20(1).pdf" download>Download</a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- TransDigm LBO -->
+      <div class="work-card reveal">
+        <div class="work-card-top">
+          <span class="work-badge">Michigan Private &amp; Venture Capital</span>
+          <h3 class="work-title">LBO Model — TransDigm Group [NYSE: TDG]</h3>
+          <p class="work-desc">
+            Built a leveraged buyout model for TransDigm Group as part of Michigan Private &amp; Venture Capital's deal work. The model covers a full operating build, debt schedule, sources &amp; uses, returns waterfall, and sensitivity analysis. Presentation deck in progress.
+          </p>
+        </div>
+        <div class="work-docs work-docs-single">
+
+          <div class="doc-card">
+            <div class="doc-icon-wrap">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                <polyline points="14 2 14 8 20 8"></polyline>
+                <line x1="16" y1="13" x2="8" y2="13"></line>
+                <line x1="16" y1="17" x2="8" y2="17"></line>
+              </svg>
+            </div>
+            <div class="doc-info">
+              <div class="doc-name">LBO Financial Model</div>
+              <div class="doc-type">Excel &nbsp;·&nbsp; Full Model with Returns Waterfall</div>
+            </div>
+            <div class="doc-btns">
+              <button class="btn btn-sm btn-primary" onclick="openViewer('transdigm-model')">View</button>
+              <a class="btn btn-sm btn-outline" href="./TransDigm%20PEVC%20LBO%20-%20Final.xlsx" download>Download</a>
+            </div>
+          </div>
+
+          <div class="doc-card doc-card-placeholder">
+            <div class="doc-icon-wrap" style="opacity:0.35;">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <rect x="2" y="3" width="20" height="14" rx="2"></rect>
+                <path d="M8 21h8M12 17v4"></path>
+              </svg>
+            </div>
+            <div class="doc-info">
+              <div class="doc-name" style="color:var(--text-dim);">Investment Thesis Deck</div>
+              <div class="doc-type">Slides in progress</div>
+            </div>
+            <div class="doc-btns">
+              <span class="coming-soon-tag">Coming Soon</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
     </div>
   </section>
 
@@ -358,29 +439,46 @@
     document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
     // ── Document viewer ─────────────────────────────
-    function openViewer(type) {
-      const loc = window.location;
-      const base = loc.origin + loc.pathname.replace(/\/[^/]*$/, '/');
-
-      let encodedFile, title, downloadHref;
-      if (type === 'deck') {
-        encodedFile = '%24LKNCY_Deck%20(4).pptx';
-        title = 'Investment Thesis Deck — $LKNCY';
-        downloadHref = './%24LKNCY_Deck%20(4).pptx';
-      } else {
-        encodedFile = 'LKNCY%20-%20MIG%20LBO%20Comp%20Final%20Model.xlsx';
-        title = 'LBO Financial Model — $LKNCY';
-        downloadHref = './LKNCY%20-%20MIG%20LBO%20Comp%20Final%20Model.xlsx';
+    const DOCS = {
+      'lkncy-deck': {
+        title: 'Investment Thesis Deck — $LKNCY',
+        file:  '%24LKNCY_Deck%20(4).pptx',
+        download: './%24LKNCY_Deck%20(4).pptx',
+        isPDF: false
+      },
+      'lkncy-model': {
+        title: 'LBO Financial Model — $LKNCY',
+        file:  'LKNCY%20-%20MIG%20LBO%20Comp%20Final%20Model.xlsx',
+        download: './LKNCY%20-%20MIG%20LBO%20Comp%20Final%20Model.xlsx',
+        isPDF: false
+      },
+      'vrt': {
+        title: 'Pitch Deck — Vertiv Holdings [NYSE: VRT]',
+        file:  '%24VRT%20Energy%20W26%20(1).pdf',
+        download: './%24VRT%20Energy%20W26%20(1).pdf',
+        isPDF: true
+      },
+      'transdigm-model': {
+        title: 'LBO Financial Model — TransDigm [NYSE: TDG]',
+        file:  'TransDigm%20PEVC%20LBO%20-%20Final.xlsx',
+        download: './TransDigm%20PEVC%20LBO%20-%20Final.xlsx',
+        isPDF: false
       }
+    };
 
-      const fileUrl = base + encodedFile;
-      const viewerUrl = 'https://view.officeapps.live.com/op/embed.aspx?src=' + encodeURIComponent(fileUrl);
+    function openViewer(type) {
+      const doc = DOCS[type];
+      const base = window.location.origin + window.location.pathname.replace(/\/[^/]*$/, '/');
+      const fileUrl = base + doc.file;
+      const viewerUrl = doc.isPDF
+        ? fileUrl
+        : 'https://view.officeapps.live.com/op/embed.aspx?src=' + encodeURIComponent(fileUrl);
 
-      document.getElementById('modal-title').textContent = title;
+      document.getElementById('modal-title').textContent = doc.title;
       document.getElementById('modal-iframe').src = viewerUrl;
       document.getElementById('modal-foot').innerHTML =
-        `<a class="btn btn-sm btn-outline" href="${downloadHref}" download>Download File</a>
-         <p class="modal-note">Powered by Microsoft Office Online. If the preview doesn't load, download the file directly.</p>`;
+        `<a class="btn btn-sm btn-outline" href="${doc.download}" download>Download File</a>
+         <p class="modal-note">${doc.isPDF ? 'PDF viewer.' : 'Powered by Microsoft Office Online.'} If the preview doesn't load, download directly.</p>`;
       document.getElementById('modal-overlay').classList.add('active');
       document.body.style.overflow = 'hidden';
     }
