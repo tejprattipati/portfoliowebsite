@@ -625,12 +625,12 @@ strong { color: var(--text); font-weight: 600; }
   background: none;
   border: none;
   cursor: pointer;
-  padding: 10px 0;
-  color: var(--text-dim);
+  padding: 14px 0;
+  color: var(--text-muted);
   font-family: 'Inter', sans-serif;
-  font-size: 0.78rem;
+  font-size: 0.86rem;
   font-weight: 600;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   transition: color var(--transition);
 }
@@ -650,8 +650,8 @@ strong { color: var(--text); font-weight: 600; }
   background: rgba(201, 168, 76, 0.3);
 }
 .toggle-chevron {
-  width: 14px;
-  height: 14px;
+  width: 17px;
+  height: 17px;
   flex-shrink: 0;
   transition: transform 0.3s ease;
 }
