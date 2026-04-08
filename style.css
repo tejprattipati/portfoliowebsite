@@ -277,8 +277,8 @@ strong { color: var(--text); font-weight: 600; }
   border-radius: 50%;
   object-fit: cover;
   object-position: center top;
-  border: 2px solid var(--gold);
-  box-shadow: 0 0 0 4px rgba(201, 168, 76, 0.15);
+  border: 3px solid var(--gold);
+  box-shadow: 0 0 0 6px rgba(201, 168, 76, 0.15), 0 8px 32px rgba(0,0,0,0.35);
   flex-shrink: 0;
 }
 .hero-name {
@@ -625,10 +625,10 @@ strong { color: var(--text); font-weight: 600; }
   background: none;
   border: none;
   cursor: pointer;
-  padding: 20px 0;
+  padding: 24px 0;
   color: var(--text-muted);
   font-family: 'Inter', sans-serif;
-  font-size: 0.95rem;
+  font-size: 1.05rem;
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -638,7 +638,7 @@ strong { color: var(--text); font-weight: 600; }
 .additional-toggle::after {
   content: '';
   flex: 1;
-  height: 1px;
+  height: 2px;
   background: var(--border);
   transition: background var(--transition);
 }
@@ -650,8 +650,8 @@ strong { color: var(--text); font-weight: 600; }
   background: rgba(201, 168, 76, 0.3);
 }
 .toggle-chevron {
-  width: 20px;
-  height: 20px;
+  width: 22px;
+  height: 22px;
   flex-shrink: 0;
   transition: transform 0.3s ease;
 }
