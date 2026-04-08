@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tej Prattipati | Finance Portfolio</title>
+    <meta
+      name="description"
+      content="Finance portfolio showcasing experience, valuation models, investment pitches, and transaction work."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="container nav-wrap">
+        <a href="#" class="brand">TP<span>Finance</span></a>
+        <nav>
+          <a href="#experience">Experience</a>
+          <a href="#models">Models</a>
+          <a href="#pitches">Pitches</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero container">
+        <p class="kicker">Finance Portfolio</p>
+        <h1>Tej Prattipati</h1>
+        <p class="subtitle">
+          A clean, investor-style portfolio for transaction experience, valuation models,
+          and investment memos.
+        </p>
+        <div class="hero-cta">
+          <a href="#models" class="btn btn-primary">View Work</a>
+          <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+        </div>
+      </section>
+
+      <section id="experience" class="container section">
+        <div class="section-head">
+          <h2>Experience</h2>
+          <p>Highlight your internship and project history with measurable outcomes.</p>
+        </div>
+        <div class="grid cards-3">
+          <article class="card">
+            <h3>Investment Banking Intern</h3>
+            <p class="meta">Firm Name • Summer 2025</p>
+            <ul>
+              <li>Built and audited 3-statement operating models.</li>
+              <li>Prepared buyer universe and strategic screening analysis.</li>
+              <li>Supported diligence trackers and CIM content.</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h3>Private Equity / Search Fund</h3>
+            <p class="meta">Fund Name • 2024–2025</p>
+            <ul>
+              <li>Screened pipeline opportunities across target sectors.</li>
+              <li>Created LBO-style return sensitivity outputs.</li>
+              <li>Drafted investment committee memo sections.</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h3>Student Investment Fund</h3>
+            <p class="meta">University Fund • 2023–2026</p>
+            <ul>
+              <li>Published deep-dive equity research reports.</li>
+              <li>Presented investment thesis to allocation committee.</li>
+              <li>Tracked catalysts and thesis variance over time.</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section id="models" class="container section">
+        <div class="section-head">
+          <h2>Models & Analysis</h2>
+          <p>
+            Upload your PDFs into <code>assets/docs</code> and update the entries below.
+            Documents open inline on click.
+          </p>
+        </div>
+        <div class="grid cards-2">
+          <article class="card project-card">
+            <h3>3-Statement Model + DCF</h3>
+            <p class="meta">Public Company Valuation</p>
+            <p>
+              Revenue build, cost structure, debt schedule, and valuation bridge with
+              scenario outputs.
+            </p>
+            <button class="btn btn-link" data-pdf="assets/docs/sample-dcf.pdf">
+              Open PDF
+            </button>
+          </article>
+
+          <article class="card project-card">
+            <h3>LBO Returns Case</h3>
+            <p class="meta">Sponsor Deal Structure</p>
+            <p>
+              Debt paydown, exit multiple sensitivity, and IRR/MOIC by operating case.
+            </p>
+            <button class="btn btn-link" data-pdf="assets/docs/sample-lbo.pdf">
+              Open PDF
+            </button>
+          </article>
+        </div>
+      </section>
+
+      <section id="pitches" class="container section">
+        <div class="section-head">
+          <h2>Pitches & Memos</h2>
+          <p>Use this section for your stock pitches, deal teasers, and IC memos.</p>
+        </div>
+        <div class="grid cards-2">
+          <article class="card">
+            <h3>Long Idea Pitch</h3>
+            <p class="meta">Consumer / Tech</p>
+            <p>
+              A structured thesis with variant perception, downside case, and catalyst map.
+            </p>
+            <button class="btn btn-link" data-pdf="assets/docs/sample-pitch.pdf">
+              Open Pitch PDF
+            </button>
+          </article>
+          <article class="card">
+            <h3>Investment Committee Memo</h3>
+            <p class="meta">Acquisition Summary</p>
+            <p>
+              Executive summary, market map, diligence highlights, and recommendation.
+            </p>
+            <button class="btn btn-link" data-pdf="assets/docs/sample-ic-memo.pdf">
+              Open Memo PDF
+            </button>
+          </article>
+        </div>
+      </section>
+
+      <section id="contact" class="container section contact">
+        <h2>Contact</h2>
+        <p>
+          Replace with your real contact details and profile links.
+        </p>
+        <div class="contact-links">
+          <a href="mailto:your.email@example.com">your.email@example.com</a>
+          <a href="https://www.linkedin.com" target="_blank" rel="noreferrer">LinkedIn</a>
+          <a href="#">Resume (PDF)</a>
+        </div>
+      </section>
+    </main>
+
+    <div class="modal" id="pdf-modal" aria-hidden="true" role="dialog" aria-label="PDF viewer">
+      <div class="modal-shell">
+        <button class="modal-close" id="close-modal" aria-label="Close PDF viewer">×</button>
+        <iframe id="pdf-frame" title="PDF Document" src="" loading="lazy"></iframe>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
