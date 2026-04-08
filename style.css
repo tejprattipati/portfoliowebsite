@@ -626,7 +626,7 @@ strong { color: var(--text); font-weight: 600; }
   border: none;
   cursor: pointer;
   padding: 24px 0;
-  color: var(--text-muted);
+  color: var(--gold);
   font-family: 'Inter', sans-serif;
   font-size: 1.05rem;
   font-weight: 700;
@@ -639,15 +639,15 @@ strong { color: var(--text); font-weight: 600; }
   content: '';
   flex: 1;
   height: 2px;
-  background: var(--border);
+  background: rgba(201, 168, 76, 0.35);
   transition: background var(--transition);
 }
 .additional-toggle:hover {
-  color: var(--gold);
+  color: var(--gold-light);
 }
 .additional-toggle:hover::before,
 .additional-toggle:hover::after {
-  background: rgba(201, 168, 76, 0.3);
+  background: rgba(201, 168, 76, 0.55);
 }
 .toggle-chevron {
   width: 22px;
@@ -656,7 +656,7 @@ strong { color: var(--text); font-weight: 600; }
   transition: transform 0.3s ease;
 }
 .additional-toggle.open {
-  color: var(--text-muted);
+  color: var(--gold);
 }
 .additional-toggle.open .toggle-chevron {
   transform: rotate(180deg);
