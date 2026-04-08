@@ -595,7 +595,7 @@ strong { color: var(--text); font-weight: 600; }
   background: var(--border);
 }
 .work-docs-single {
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
 }
 .work-card + .work-card {
   margin-top: 24px;
